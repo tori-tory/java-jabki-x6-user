@@ -37,9 +37,6 @@ public class UserService {
     @Transactional(readOnly = true)
     public boolean existsById(final Long id) {
         return userRepository.existsById(id);
-        //if (!userRepository.existsById(id)) {
-        //    throw new BadRequestException(String.format("Пользователь с id %d не найден", id));
-        //}
     }
 
     private void validate(final User user) {
