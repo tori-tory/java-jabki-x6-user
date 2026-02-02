@@ -13,7 +13,7 @@ import ru.jabki.x6.user.repository.UserRepository;
 public class UserService {
     private final UserRepository userRepository;
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public User create(final User user) {
         validate(user);
         return userRepository.insert(user);
@@ -24,7 +24,7 @@ public class UserService {
         return userRepository.getById(id);
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public User update(final User user) {
         validate(user);
         final User existUser = getById(user.getId());

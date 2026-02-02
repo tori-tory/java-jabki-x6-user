@@ -24,26 +24,25 @@ public class UserController {
 
     @PostMapping
     @Operation(summary = "Создать пользователя")
-    public User create(@RequestBody final User user) {
+    public User create(@RequestBody User user) {
         return userService.create(user);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Получить пользователя по id")
-    public User getById(@PathVariable("id") final Long id) {
+    public User getById(@PathVariable("id") Long id) {
         return userService.getById(id);
     }
 
     @PatchMapping
     @Operation(summary = "Изменить пользователя")
-    public User update(@RequestBody final User user) {
+    public User update(@RequestBody User user) {
         return userService.update(user);
     }
 
     @GetMapping("/exists/{id}")
     @Operation(summary = "Проверка, существует ли пользователь")
-    public boolean existsById(@PathVariable("id") final Long id) {
+    public boolean existsById(@PathVariable("id") Long id) {
         return userService.existsById(id);
-        //return String.format("Пользователь с id %d найден", id);
     }
 }
